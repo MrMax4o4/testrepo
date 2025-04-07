@@ -1,0 +1,9 @@
+name: Update Badge Cache
+on:
+  schedule:
+    - cron: '*/30 * * * *' # Every 30 minutes
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -s "https://api.github.com/repos/MrMax4o4/testrepo/contents/Assets" > /dev/null
