@@ -1,0 +1,17 @@
+<h1 style="font-size: 3rem; text-align: center;">
+  <span id="counter">0</span> Templates
+</h1>
+<script>
+fetch('https://api.github.com/repos/MrMax4o4/testrepo/contents/Assets')
+  .then(r => r.json())
+  .then(data => {
+    const counter = document.getElementById('counter');
+    let current = 0;
+    const target = data.length;
+    const increment = () => {
+      current < target ? current++ : clearInterval(anim);
+      counter.innerText = current;
+    };
+    const anim = setInterval(increment, 50);
+  });
+</script>
